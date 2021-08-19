@@ -1,13 +1,15 @@
-import { Swiper, SwiperItem , View, Text, Image } from '@tarojs/components'
+import { Swiper, SwiperItem , View, Text, Image,Button } from '@tarojs/components'
 import {useState, useEffect} from 'react'
+import { connect } from 'react-redux'
 import Taro, {useReady, useDidShow, useDidHide} from '@tarojs/taro'
 import {getBanners} from '../../utils/api'
+import { add, minus, asyncAdd } from '../../store/actions/counter'
 import './index.scss'
 import img1 from '../../static/imgs/bg1.jpg'
 import img2 from '../../static/imgs/bg2.jpg'
 import img3 from '../../static/imgs/bg3.jpg'
 
-const Index = () => {
+const Index = (props) => {
   const [bannerImgs, setBannerImgs] = useState([]);
 
   const getData =  async () => {
@@ -38,6 +40,7 @@ const Index = () => {
   })
 
   return (
+    <View>
       <Swiper
         className='box'
         autoplay
@@ -56,7 +59,23 @@ const Index = () => {
           })
         }
       </Swiper>
+      <View>{props.counter.num}</View>
+      <Button onClick={props.add}>a</Button>
+      <Button onClick={props.desc}>b</Button>
+    </View>
   )
 }
 
-export default Index
+export default connect(({counter})=>({
+  counter
+}),(dispatch)=>({
+  add(){
+    dispatch(add())
+  },
+  desc(){
+    dispatch(minus())
+  },
+  asyncAdd(){
+    dispatch(asyncAdd())
+  }
+}))(Index)
