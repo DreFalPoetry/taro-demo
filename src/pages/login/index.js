@@ -20,7 +20,7 @@ const LoginPage = () => {
     })
   }
   const jumpToHome = () => {
-    Taro.redirectTo({
+    Taro.switchTab({
       url: '/pages/index/index'
     })
   }
