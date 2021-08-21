@@ -2,17 +2,17 @@ import { Swiper, SwiperItem , View, Text, Image,Button } from '@tarojs/component
 import {useState, useEffect} from 'react'
 import { connect } from 'react-redux'
 import Taro, {useReady, useDidShow, useDidHide} from '@tarojs/taro'
-import {getBanners} from '../../utils/api'
-import { add, minus, asyncAdd } from '../../store/actions/counter'
+import {getBanners} from '@/utils/api'
+import { add, minus, asyncAdd } from '@/store/actions/counter'
+import img1 from '@/static/imgs/bg1.jpg'
+import img2 from '@/static/imgs/bg2.jpg'
+import img3 from '@/static/imgs/bg3.jpg'
 import './index.scss'
-import img1 from '../../static/imgs/bg1.jpg'
-import img2 from '../../static/imgs/bg2.jpg'
-import img3 from '../../static/imgs/bg3.jpg'
 
 const Index = (props) => {
   const [bannerImgs, setBannerImgs] = useState([]);
 
-  const getData =  async () => {
+  const getData = async () => {
     try {
       const res = await getBanners()
       console.log(res)
@@ -60,8 +60,8 @@ const Index = (props) => {
         }
       </Swiper>
       <View>{props.counter.num}</View>
-      <Button onClick={props.add}>a</Button>
-      <Button onClick={props.desc}>b</Button>
+      <Button onClick={props.add}>数字加</Button>
+      <Button onClick={props.desc}>数字减</Button>
     </View>
   )
 }

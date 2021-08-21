@@ -1,3 +1,5 @@
+const path = require('path')
+
 const config = {
   projectName: 'taro-demo',
   date: '2021-8-19',
@@ -19,18 +21,27 @@ const config = {
     }
   },
   framework: 'react',
+  alias: {
+    '@/components': path.resolve(__dirname, '..', 'src/components'),
+    '@/utils': path.resolve(__dirname, '..', 'src/utils'),
+    '@/static': path.resolve(__dirname, '..', 'src/static'),
+    '@/store': path.resolve(__dirname, '..', 'src/store')
+  },
   mini: {
     postcss: {
+      autoprefixer: {
+        enable: true
+      },
       pxtransform: {
         enable: true,
         config: {
-
+          selectorBlackList: ['body']
         }
       },
       url: {
         enable: true,
         config: {
-          limit: 1024 // 设定转换尺寸上限
+          limit: 10240 // 设定转换尺寸上限
         }
       },
       cssModules: {

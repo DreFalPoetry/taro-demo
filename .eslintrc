@@ -1,7 +1,31 @@
 {
-  "extends": ["taro/react"],
+  "extends": ["taro/react", "airbnb", "airbnb/hooks", "prettier"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "commonjs": true,
+    "es6": true
+  },
   "rules": {
+    // react rules
+    "react/jsx-indent": ["error", 2],
+    "react/jsx-indent-props": ["error", 2],
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "indent": [2, 2], // 控制缩进为2
+    "no-console": 0, //不禁用console
+    "no-debugger": 1, //警告debugger
+    "no-var": 2, //对var禁止
+    "no-unused-vars": 0,
+    "generator-star-spacing": [2, {
+      "before": true,
+      "after": true
+    }],
+    // 强制在对象字面量的属性中键和值之间使用一致的间距
+    "key-spacing": [2, {
+      "beforeColon": false,
+      "afterColon": true
+    }]
   }
 }

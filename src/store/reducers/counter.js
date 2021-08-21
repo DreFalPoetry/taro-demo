@@ -6,17 +6,17 @@ const initState = {
 
 export default function counter(state=initState,action){
   switch (action.type) {
-    case ADD:
-      return {
-         ...state,
-         num: state.num + 1
-      }
-    case MINUS:
-      return  {
-        ...state,
-        num: state.num -1
-      }
-    default:
-      return state
+  case ADD:
+    return {
+      ...state,
+      num: state.num + 1
+    }
+  case MINUS:
+    return  {
+      ...state,
+      num: state.num -1
+    }
+  default:
+    return state
   }
 }
