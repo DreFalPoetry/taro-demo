@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react'
 import { View, Text, Button, Image } from '@tarojs/components'
 
 const LoginPage = () => {
-  const [userInfo,setUserInfo] = useState({})
+  const [userInfo, setUserInfo] = useState({})
 
-  useEffect(()=>{
+  useEffect(() => {
     Taro.setNavigationBarTitle({
       title: '页面title' + (userInfo.nickName || '')
     })
-  },[userInfo])
+  }, [userInfo])
 
   const getwxLogin = () => {
     Taro.getUserProfile({

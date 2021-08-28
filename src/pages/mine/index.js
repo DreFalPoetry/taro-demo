@@ -1,11 +1,9 @@
 import { View } from '@tarojs/components'
 
-const Mine = () => {
-  return (
-    <View>
+const Mine = () => (
+  <View>
       我的页面
-    </View>
-  )
-}
+  </View>
+)
 
 export default Mine

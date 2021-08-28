@@ -1,4 +1,4 @@
-import { Swiper, SwiperItem , View, Text, Image,Button } from '@tarojs/components'
+import { Swiper, SwiperItem, View, Text, Image, Button } from '@tarojs/components'
 import {useState, useEffect} from 'react'
 import { connect } from 'react-redux'
 import Taro, {useReady, useDidShow, useDidHide} from '@tarojs/taro'
@@ -16,7 +16,7 @@ const Index = (props) => {
     try {
       const res = await getBanners()
       console.log(res)
-      const banners = [{id:1,url: img1},{id:2,url: img2},{id:3, url: img3}]
+      const banners = [{id: 1, url: img1}, {id: 2, url: img2}, {id: 3, url: img3}]
       setBannerImgs(banners)
     } catch (error) {
       Taro.showToast({
@@ -27,7 +27,7 @@ const Index = (props) => {
 
   useEffect(() => {
     getData()
-  },[]);
+  }, []);
 
   useReady(() => {
     console.log('===page ready===')
@@ -50,13 +50,11 @@ const Index = (props) => {
         onAnimationFinish={() => {}}
       >
         {
-          bannerImgs.map(v=>{
-            return (
-              <SwiperItem key={v.id}>
-                <Image className='img' src={v.url} />
-              </SwiperItem>
-            )
-          })
+          bannerImgs.map((v) => (
+            <SwiperItem key={v.id}>
+              <Image className='img' src={v.url} />
+            </SwiperItem>
+          ))
         }
       </Swiper>
       <View>{props.counter.num}</View>
@@ -66,16 +64,16 @@ const Index = (props) => {
   )
 }
 
-export default connect(({counter})=>({
+export default connect(({counter}) => ({
   counter
-}),(dispatch)=>({
-  add(){
+}), (dispatch) => ({
+  add () {
     dispatch(add())
   },
-  desc(){
+  desc () {
     dispatch(minus())
   },
-  asyncAdd(){
+  asyncAdd () {
     dispatch(asyncAdd())
   }
 }))(Index)

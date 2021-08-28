@@ -1,19 +1,15 @@
-import {ADD,MINUS} from '../consts/counter'
+import {ADD, MINUS} from '../consts/counter'
 
-export const add = () => {
-  return {
-    type: ADD
-  }
-}
+export const add = () => ({
+  type: ADD
+})
 
-export const minus = () => {
-  return {
-    type: MINUS
-  }
-}
+export const minus = () => ({
+  type: MINUS
+})
 
-export function asyncAdd() {
-  return dispatch => {
+export function asyncAdd () {
+  return (dispatch) => {
     setTimeout(() => {
       dispatch(add())
     }, 1000);

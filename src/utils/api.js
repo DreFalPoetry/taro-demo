@@ -1,7 +1,7 @@
 import {request} from './request'
 
-export const getBanners = function(){
+export const getBanners = function () {
   return request({
-    url: '/api/user',
+    url: '/api/user'
   })
 }
