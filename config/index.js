@@ -28,6 +28,9 @@ const config = {
     '@/store': path.resolve(__dirname, '..', 'src/store')
   },
   mini: {
+    optimizeMainPackage: {
+      enable: true
+    },
     postcss: {
       autoprefixer: {
         enable: true
@@ -51,6 +54,10 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
+    },
+    webpackChain (chain, webpack) {
+      chain.plugin('analyzer')
+        .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin, [])
     }
   },
   h5: {

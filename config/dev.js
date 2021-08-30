@@ -5,6 +5,10 @@ module.exports = {
   },
   defineConstants: {
   },
-  mini: {},
+  mini: {
+    optimizeMainPackage: {
+      enable: true
+    }
+  },
   h5: {}
 }
