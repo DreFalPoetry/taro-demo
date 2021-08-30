@@ -5,6 +5,14 @@ export default {
     'pages/menu/index',
     'pages/mine/index',
   ],
+  subpackages: [
+    {
+      'root': 'subpage',
+      'pages': [
+        'demo/index'
+      ]
+    }
+  ],
   tabBar: {
     list: [{
       'iconPath': 'static/imgs/tabbar/home-off.png',

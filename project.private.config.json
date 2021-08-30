@@ -1,0 +1,23 @@
+{
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "demo页面",
+                    "pathName": "subpage/demo/index",
+                    "query": "",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

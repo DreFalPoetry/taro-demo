@@ -41,17 +41,17 @@ const Index = (props) => {
   return (
     <View>
       <Swiper
-        className='box'
+        className="box"
         autoplay
         interval={2000}
-        indicatorColor='#999'
+        indicatorColor="#999"
         onClick={() => {}}
         onAnimationFinish={() => {}}
       >
         {
           bannerImgs.map((v) => (
             <SwiperItem key={v.id}>
-              <Image className='img' src={v.url} />
+              <Image className="img" src={v.url} />
             </SwiperItem>
           ))
         }
