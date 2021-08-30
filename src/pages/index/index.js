@@ -11,7 +11,6 @@ import './index.scss'
 
 const Index = (props) => {
   const [bannerImgs, setBannerImgs] = useState([]);
-
   const getData = async () => {
     try {
       const res = await getBanners()
