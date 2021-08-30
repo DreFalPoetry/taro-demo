@@ -1,17 +1,14 @@
-import {ADD, MINUS} from '../consts/counter'
+import {ADD, MINUS, CHANGE_COUNT} from '../consts/counter'
 
-export const add = () => ({
-  type: ADD
-})
+export const add = () => ({type: ADD})
 
-export const minus = () => ({
-  type: MINUS
-})
+export const minus = () => ({type: MINUS})
 
-export function asyncAdd () {
-  return (dispatch) => {
-    setTimeout(() => {
-      dispatch(add())
-    }, 1000);
-  }
+export const asyncChangeCount = (count) => (dispatch) => {
+  setTimeout(() => {
+    dispatch({
+      type: CHANGE_COUNT,
+      data: count
+    })
+  }, 1000);
 }

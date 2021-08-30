@@ -1,15 +1,17 @@
 import { Swiper, SwiperItem, View, Text, Image, Button } from '@tarojs/components'
 import {useState, useEffect} from 'react'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch} from 'react-redux'
 import Taro, {useReady, useDidShow, useDidHide} from '@tarojs/taro'
 import {getBanners} from '@/utils/api'
-import { add, minus, asyncAdd } from '@/store/actions/counter'
+import { add, minus, asyncChangeCount } from '@/store/actions/counter'
 import img1 from '@/static/imgs/bg1.jpg'
 import img2 from '@/static/imgs/bg2.jpg'
 import img3 from '@/static/imgs/bg3.jpg'
 import './index.scss'
 
 const Index = (props) => {
+  const counter = useSelector((state) => state.counter)
+  const dispatch = useDispatch()
   const [bannerImgs, setBannerImgs] = useState([]);
   const getData = async () => {
     try {
@@ -56,23 +58,12 @@ const Index = (props) => {
           ))
         }
       </Swiper>
-      <View>{props.counter.num}</View>
-      <Button onClick={props.add}>数字加</Button>
-      <Button onClick={props.desc}>数字减</Button>
+      <View>{counter.num}</View>
+      <Button onClick={() => dispatch(add())}>数字加</Button>
+      <Button onClick={() => dispatch(minus())}>数字减</Button>
+      <Button onClick={() => dispatch(asyncChangeCount(12))}>异步修改</Button>
     </View>
   )
 }
 
-export default connect(({counter}) => ({
-  counter
-}), (dispatch) => ({
-  add () {
-    dispatch(add())
-  },
-  desc () {
-    dispatch(minus())
-  },
-  asyncAdd () {
-    dispatch(asyncAdd())
-  }
-}))(Index)
+export default Index
