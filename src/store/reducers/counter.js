@@ -1,22 +1,22 @@
-import { ADD, MINUS, CHANGE_COUNT } from '../consts/counter'
+import {COUNTER} from '../consts.js'
 
 const initState = {
   num: 0
 }
 
-export default function counter (state = initState, action) {
+export default function counter(state = initState, action) {
   switch (action.type) {
-  case ADD:
+  case COUNTER.ADD:
     return {
       ...state,
       num: state.num + 1
     }
-  case MINUS:
+  case COUNTER.MINUS:
     return {
       ...state,
       num: state.num - 1
     }
-  case CHANGE_COUNT:
+  case COUNTER.CHANGE_COUNT:
     return {
       ...state,
       num: action.data

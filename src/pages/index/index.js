@@ -3,11 +3,12 @@ import {useState, useEffect} from 'react'
 import { useSelector, useDispatch} from 'react-redux'
 import Taro, {useReady, useDidShow, useDidHide} from '@tarojs/taro'
 import {getBanners} from '@/utils/api'
-import { add, minus, asyncChangeCount } from '@/store/actions/counter'
+import { counterAction } from '@/store/actions'
 import img1 from '@/static/imgs/bg1.jpg'
 import img2 from '@/static/imgs/bg2.jpg'
 import img3 from '@/static/imgs/bg3.jpg'
 import './index.scss'
+const {add, minus, asyncChangeCount} = counterAction
 
 const Index = (props) => {
   const counter = useSelector((state) => state.counter)
